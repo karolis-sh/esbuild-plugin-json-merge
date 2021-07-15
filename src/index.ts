@@ -4,13 +4,13 @@ import { promisify } from 'util';
 import globCB from 'glob';
 import { Plugin } from 'esbuild';
 
-import { Options, InputEntry } from './interface';
+import { Options, InputEntry, JSONValue } from './interface';
 
 const glob = promisify(globCB);
 
 const NAME = 'json-merge';
 
-const getContentChunks = (entryPoints: InputEntry[]): Promise<any[]> =>
+const getContentChunks = (entryPoints: InputEntry[]): Promise<JSONValue[]> =>
   Promise.all(
     entryPoints
       .filter((item) => item != null)
@@ -22,6 +22,11 @@ const getContentChunks = (entryPoints: InputEntry[]): Promise<any[]> =>
           : Promise.resolve(index === 0 ? JSON.parse(JSON.stringify(item)) : item)
       )
   ).then((items) => items.flat().filter((item) => item != null));
+
+const merge = (items: JSONValue[]): JSONValue =>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  Object.assign(...items);
 
 export default ({ entryPoints, outfile }: Options = {}): Plugin => ({
   name: NAME,
@@ -43,7 +48,7 @@ export default ({ entryPoints, outfile }: Options = {}): Plugin => ({
 
     build.onStart(async () => {
       const chunks = await getContentChunks(entryPoints);
-      const merged = chunks.length ? Object.assign(chunks) : undefined;
+      const merged = chunks.length ? merge(chunks) : undefined;
       if (merged != null) {
         await fse.mkdirp(path.dirname(destination));
         await fse.writeJSON(destination, merged, { spaces: 2 });
