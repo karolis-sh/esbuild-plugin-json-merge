@@ -10,13 +10,13 @@ pipeline.
 ## Installation
 
 ```bash
-npm i postcss esbuild-plugin-json-merge -D
+npm i esbuild-plugin-json-merge -D
 ```
 
 or
 
 ```bash
-yarn add postcss esbuild-plugin-json-merge --dev
+yarn add esbuild-plugin-json-merge --dev
 ```
 
 ## Usage
