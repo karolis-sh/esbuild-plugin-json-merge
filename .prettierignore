@@ -1,0 +1,16 @@
+*
+!*/
+!*.js
+!*.ts
+!*.tsx
+!*.css
+!*.json
+!*.md
+!*.yml
+
+# npm files
+node_modules
+package.json
+
+# project
+lib
