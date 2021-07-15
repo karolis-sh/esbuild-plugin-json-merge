@@ -28,7 +28,7 @@ const merge = (items: JSONValue[]): JSONValue =>
   // @ts-ignore
   Object.assign(...items);
 
-export default ({ entryPoints, outfile }: Options = {}): Plugin => ({
+export = ({ entryPoints, outfile }: Options = {}): Plugin => ({
   name: NAME,
   async setup(build) {
     if (!outfile) {
