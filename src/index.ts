@@ -23,10 +23,18 @@ const getContentChunks = (entryPoints: InputEntry[]): Promise<any[]> =>
       )
   ).then((items) => items.flat().filter((item) => item != null));
 
-export default ({ entryPoints = [], outfile }: Options = {}): Plugin => ({
+export default ({ entryPoints, outfile }: Options = {}): Plugin => ({
   name: NAME,
   async setup(build) {
-    if (!outfile) throw new Error(`[${NAME}] outfile option is missing`);
+    if (!outfile) {
+      throw new Error(`[${NAME}] outfile option is missing`);
+    }
+
+    if (!Array.isArray(entryPoints)) {
+      throw new Error(`[${NAME}] entryPoints option is not an array`);
+    }
+
+    if (!entryPoints.length) return;
 
     const destination = path.join(
       build.initialOptions.outdir || path.basename(build.initialOptions.outfile || ''),
