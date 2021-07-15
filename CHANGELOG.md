@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/karolis-sh/esbuild-plugin-json-merge/compare/v0.0.1...v0.0.2) (2021-07-15)
+
+
+### Bug Fixes
+
+* resolve bundle format ([6ca68de](https://github.com/karolis-sh/esbuild-plugin-json-merge/commit/6ca68deee0dca9d98b5fc87fa91130229eb1fde1))
+
 ### 0.0.1 (2021-07-15)
 
 
