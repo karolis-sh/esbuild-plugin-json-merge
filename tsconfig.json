@@ -1,12 +1,7 @@
 {
-  "extends": "@k.sh/eslint-config/typescript/config.json",
+  "extends": "@k.sh/typescript-config/config.json",
   "compilerOptions": {
-    "lib": ["ESNext"],
-    "sourceMap": true,
-    "removeComments": true,
-    "esModuleInterop": true,
-    "outDir": "lib",
-    "moduleResolution": "node"
+    "esModuleInterop": true
   },
-  "include": ["src"]
+  "include": ["src", "__tests__"]
 }
