@@ -67,8 +67,7 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "esbuild": "*",
-    "postcss": "^8.0.0"
+    "esbuild": "*"
   },
   "volta": {
     "node": "14.17.3",
