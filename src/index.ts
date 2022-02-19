@@ -1,6 +1,6 @@
 import path from 'path';
-import fse from 'fs-extra';
 import { promisify } from 'util';
+import * as fse from 'fs-extra';
 import globCB from 'glob';
 import { Plugin } from 'esbuild';
 

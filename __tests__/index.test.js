@@ -1,14 +1,13 @@
-import path from 'path';
-import os from 'os';
-import fse from 'fs-extra';
-import { build } from 'esbuild';
+const os = require('os');
+const path = require('path');
+const { build } = require('esbuild');
+const fse = require('fs-extra');
 
-import jsonMerge from '../src';
-import { Options } from '../src/interface';
+const jsonMerge = require('../lib');
 
 const FIXTURES_DIR = path.join(path.relative(process.cwd(), __dirname), '__fixtures__');
 
-const merge = async (options: Options): Promise<string> => {
+const merge = async (options) => {
   const outdir = path.join(os.tmpdir(), 'esbuild-plugin-json-merge', Date.now().toString());
 
   await build({

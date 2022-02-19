@@ -1,5 +1,5 @@
 {
-  "extends": ["@k.sh/eslint-config"],
+  "extends": ["@k.sh"],
   "env": {
     "node": true,
     "jest": true
@@ -7,9 +7,9 @@
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "extends": ["@k.sh/eslint-config/typescript"],
+      "extends": ["@k.sh/eslint-config-typescript"],
       "parserOptions": {
-        "project": "./tsconfig.eslint.json"
+        "project": "./tsconfig.json"
       }
     }
   ]
