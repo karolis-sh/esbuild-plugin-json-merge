@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/karolis-sh/esbuild-plugin-json-merge/compare/v0.0.2...v0.0.3) (2022-02-19)
+
+
+### Bug Fixes
+
+* remove redundant peer dep ([94e821d](https://github.com/karolis-sh/esbuild-plugin-json-merge/commit/94e821d5fea6c3e0b0bce5b49c23b262ef69b85c))
+
 ### [0.0.2](https://github.com/karolis-sh/esbuild-plugin-json-merge/compare/v0.0.1...v0.0.2) (2021-07-15)
 
 
