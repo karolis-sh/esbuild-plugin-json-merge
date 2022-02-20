@@ -38,7 +38,6 @@
     "*.{js,ts}": "eslint --fix"
   },
   "dependencies": {
-    "chokidar": "^3.5.2",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.7"
   },
