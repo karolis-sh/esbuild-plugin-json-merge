@@ -1,16 +1,37 @@
 {
-  "extends": ["@k.sh"],
-  "env": {
-    "node": true,
-    "jest": true
+  "extends": [
+    "plugin:@k.sh/typescript",
+    "plugin:@k.sh/node",
+    "plugin:@k.sh/prettier"
+  ],
+  "rules": {
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "node/no-missing-import": ["error", { "tryExtensions": [".js", ".ts"] }]
   },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "extends": ["@k.sh/eslint-config-typescript"],
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      }
+      "files": ["./*.js", "./.*.js"],
+      "extends": [
+        "plugin:@k.sh/esnext",
+        "plugin:@k.sh/node",
+        "plugin:@k.sh/prettier"
+      ]
+    },
+    {
+      "files": ["./__tests__/*.js"],
+      "extends": [
+        "plugin:@k.sh/esnext",
+        "plugin:@k.sh/node",
+        "plugin:@k.sh/jest",
+        "plugin:@k.sh/prettier"
+      ]
+    },
+    {
+      "files": ["./__tests__/__fixtures__/*.js"],
+      "extends": ["plugin:@k.sh/esnext", "plugin:@k.sh/prettier"]
     }
   ]
 }
