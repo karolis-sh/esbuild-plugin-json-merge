@@ -1,8 +1,9 @@
 import path from 'path';
 import { promisify } from 'util';
+
+import { Plugin } from 'esbuild';
 import * as fse from 'fs-extra';
 import globCB from 'glob';
-import { Plugin } from 'esbuild';
 
 import { Options, InputEntry, JSONValue } from './interface';
 
