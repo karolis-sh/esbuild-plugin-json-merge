@@ -17,10 +17,12 @@ const getContentChunks = (entryPoints: InputEntry[]): Promise<JSONValue[]> =>
       .map((item, index) =>
         typeof item === 'string'
           ? glob(item).then((filenames) =>
-              Promise.all(filenames.map((filename) => fse.readJSON(filename)))
+              Promise.all(filenames.map((filename) => fse.readJSON(filename))),
             )
-          : Promise.resolve(index === 0 ? JSON.parse(JSON.stringify(item)) : item)
-      )
+          : Promise.resolve(
+              index === 0 ? JSON.parse(JSON.stringify(item)) : item,
+            ),
+      ),
   ).then((items) => items.flat().filter((item) => item != null));
 
 const merge = (items: JSONValue[]): JSONValue =>
@@ -42,8 +44,9 @@ export = ({ entryPoints, outfile }: Options = {}): Plugin => ({
     if (!entryPoints.length) return;
 
     const destination = path.join(
-      build.initialOptions.outdir || path.basename(build.initialOptions.outfile || ''),
-      outfile
+      build.initialOptions.outdir ||
+        path.basename(build.initialOptions.outfile || ''),
+      outfile,
     );
 
     build.onStart(async () => {
