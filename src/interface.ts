@@ -11,4 +11,5 @@ export type InputEntry = string | JSONValue[] | { [key: string]: JSONValue };
 export type Options = Partial<{
   entryPoints: InputEntry[];
   outfile: string;
+  merge?: (items: JSONValue[]) => JSONValue;
 }>;

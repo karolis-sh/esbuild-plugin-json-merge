@@ -1,0 +1,10 @@
+{
+  "name": "Aral",
+  "emails": [],
+  "phone": "555555555",
+  "age": null,
+  "address": {
+    "zip": "54321"
+  },
+  "hobbies": ["parkour", "computer science", "books", "nature"]
+}

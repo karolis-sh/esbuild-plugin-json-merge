@@ -26,12 +26,16 @@ const getContentChunks = (entryPoints: InputEntry[]): Promise<JSONValue[]> =>
       ),
   ).then((items) => items.flat().filter((item) => item != null));
 
-const merge = (items: JSONValue[]): JSONValue =>
+const defaultMerge = (items: JSONValue[]): JSONValue =>
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   Object.assign(...items);
 
-export = ({ entryPoints, outfile }: Options = {}): Plugin => ({
+export = ({
+  entryPoints,
+  outfile,
+  merge = defaultMerge,
+}: Options = {}): Plugin => ({
   name: NAME,
   async setup(build) {
     if (!outfile) {

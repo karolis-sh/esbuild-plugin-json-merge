@@ -1,6 +1,7 @@
 const os = require('os');
 const path = require('path');
 
+const { defaultComposer } = require('default-composer');
 const { build } = require('esbuild');
 const fse = require('fs-extra');
 
@@ -51,4 +52,28 @@ it('should merge list files', async () => {
     outfile: 'out.json',
   });
   expect(json).toEqual([null, 1, false, 4, 5]);
+});
+
+it('should merge list files with custom merge', async () => {
+  const json = await merge({
+    entryPoints: [path.join(FIXTURES_DIR, 'listobjects/*.json')],
+    outfile: 'out.json',
+    merge: (items) => defaultComposer(...items),
+  });
+  expect(json).toEqual({
+    name: 'Aral',
+    surname: '',
+    isDeveloper: true,
+    isDesigner: false,
+    emails: ['contact@aralroca.com'],
+    phone: '555555555',
+    age: 33,
+    address: {
+      street: '123 Main St',
+      city: 'Anytown',
+      state: 'CA',
+      zip: '54321',
+    },
+    hobbies: ['parkour', 'computer science', 'books', 'nature'],
+  });
 });
