@@ -1,0 +1,14 @@
+{
+  "name": "Aral 😊",
+  "surname": "",
+  "isDeveloper": true,
+  "isDesigner": false,
+  "age": 33,
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA"
+  },
+  "emails": ["contact@aralroca.com"],
+  "hobbies": ["programming"]
+}

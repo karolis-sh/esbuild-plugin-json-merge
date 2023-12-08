@@ -56,5 +56,33 @@ Type: `string`
 
 JSON output destination.
 
+### merge
+
+Type: `(items: JSONValue[]) => JSONValue`
+
+By default the merge function uses `Object.assign`.
+
+```js
+const esbuild = require('esbuild');
+const jsonMerge = require('esbuild-plugin-json-merge');
+const { defaultComposer } = require('default-composer');
+
+const { version, name, description } = require('./package.json');
+
+esbuild
+  .build({
+    entryPoints: ['src/index.js'],
+    outdir: 'build',
+    plugins: [
+      jsonMerge({
+        entryPoints: ['src/manifest.json', { version, name, description }],
+        outfile: 'manifest.json',
+        merge: (items) => defaultComposer(...items), //Custom merge
+      }),
+    ],
+  })
+  .catch(() => process.exit(1));
+```
+
 [package-version-badge]: https://badge.fury.io/js/esbuild-plugin-json-merge.svg
 [package-version]: https://www.npmjs.com/package/esbuild-plugin-json-merge
