@@ -15,7 +15,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "rm -rf lib",
-    "dev": "yarn build:js --watch",
+    "dev": "npm run build:js -- --watch",
     "build": "run-p build:*",
     "build:js": "esbuild src/index.ts --outdir=lib --platform=node --format=cjs --target=node12  --tsconfig=tsconfig.release.json --sourcemap",
     "build:types": "tsc -p tsconfig.release.json",
@@ -27,10 +27,10 @@
     "lint:js": "eslint . --cache",
     "lint:md": "markdownlint-cli2 '**/*.md' '!node_modules' '!**/node_modules' '!**/CHANGELOG.md'",
     "lint:types": "tsc --noEmit",
-    "pretest": "yarn build",
+    "pretest": "npm run build",
     "test": "jest",
     "qa": "run-p lint test",
-    "release": "yarn && run-s clean build qa && standard-version --no-verify && git push --follow-tags --no-verify && npm publish",
+    "release": "npm i && run-s clean build qa && standard-version --no-verify && git push --follow-tags --no-verify && npm publish",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -71,7 +71,6 @@
     "esbuild": "*"
   },
   "volta": {
-    "node": "18.19.0",
-    "yarn": "1.22.21"
+    "node": "18.19.0"
   }
 }
