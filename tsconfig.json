@@ -1,7 +1,8 @@
 {
   "extends": "@k.sh/typescript-config/config.json",
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

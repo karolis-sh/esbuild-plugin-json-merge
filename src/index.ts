@@ -1,13 +1,10 @@
 import path from 'path';
-import { promisify } from 'util';
 
 import { Plugin } from 'esbuild';
 import * as fse from 'fs-extra';
-import globCB from 'glob';
+import { glob } from 'glob';
 
 import { Options, InputEntry, JSONValue } from './interface';
-
-const glob = promisify(globCB);
 
 const NAME = 'json-merge';
 
@@ -18,7 +15,9 @@ const getContentChunks = (entryPoints: InputEntry[]): Promise<JSONValue[]> =>
       .map((item, index) =>
         typeof item === 'string'
           ? glob(item).then((filenames) =>
-              Promise.all(filenames.map((filename) => fse.readJSON(filename))),
+              Promise.all(
+                filenames.sort().map((filename) => fse.readJSON(filename)),
+              ),
             )
           : Promise.resolve(
               index === 0 ? JSON.parse(JSON.stringify(item)) : item,

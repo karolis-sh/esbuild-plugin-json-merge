@@ -38,8 +38,8 @@
     "*.{js,ts}": "eslint --fix"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0",
-    "glob": "^7.1.7"
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
