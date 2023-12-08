@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/karolis-sh/esbuild-plugin-json-merge/compare/v0.0.3...v0.1.0) (2023-12-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** due to glob upgrade node v12+ support only and more correct glob pattern handling
+
+### Features
+
+* **deps:** bump fs-extra and glob ([087804d](https://github.com/karolis-sh/esbuild-plugin-json-merge/commit/087804d8f04ad5912a0cad3f50baedd337ad88e7))
+* add custom merge option ([ac00104](https://github.com/karolis-sh/esbuild-plugin-json-merge/commit/ac0010415ed02c3ab65a9e4ad35590aaaa5def16))
+
 ### [0.0.3](https://github.com/karolis-sh/esbuild-plugin-json-merge/compare/v0.0.2...v0.0.3) (2022-02-19)
 
 
