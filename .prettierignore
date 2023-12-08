@@ -1,15 +1,3 @@
-*
-!*/
-!*.js
-!*.ts
-!*.tsx
-!*.css
-!*.json
-!*.md
-!*.yml
-!*.sh
-!*.gitignore
-
 # npm files
 node_modules
 package.json
